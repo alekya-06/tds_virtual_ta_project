@@ -1,8 +1,6 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
-import os
-import pydantic
-from fastapi import Request
+from pydantic import BaseModel
 
 app = FastAPI()
 # CORS configuration
@@ -14,8 +12,12 @@ app.add_middleware(
     allow_headers=["*"],  # Allow all headers
 )
 
+class QuestionRequest(BaseModel):
+    question: str
+    image: str | None = None 
+
 @app.get("/")
-async def root():
+async def health_check():
     return {"message": "FastAPI is running!"}
 
 @app.post("/api/")
