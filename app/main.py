@@ -21,6 +21,10 @@ class QuestionRequest(BaseModel):
 async def health_check():
     return {"message": "FastAPI is running!"}
 
+@app.post("/")
+async def root():
+    return {"message": "Virtual TA is running!"}
+
 @app.post("/api/")
 async def answer_question(request: QuestionRequest):
     return {
