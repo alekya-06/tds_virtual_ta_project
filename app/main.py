@@ -47,6 +47,7 @@ class QuestionRequest(BaseModel):
 # Explicit POST handler
 @app.post("/api/")
 async def answer_question(request: QuestionRequest):
+    print(f"qwerty")
     return {
         "answer": f"Placeholder response to: {request.question}",
         "links": []
