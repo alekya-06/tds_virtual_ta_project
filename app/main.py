@@ -47,13 +47,13 @@ class QuestionRequest(BaseModel):
 # Explicit POST handler
 @app.post("/api/")
 async def answer_question(request: QuestionRequest):
-    print(f"qwerty")
+    #print(f"qwerty")
     return {
         "answer": f"Placeholder response to: {request.question}",
         "links": []
     }
 
 # Health check
-@app.get("/")
+@app.get("/api/")
 async def root():
     return {"message": "FastAPI is running!"}
