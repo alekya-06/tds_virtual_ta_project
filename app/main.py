@@ -29,7 +29,7 @@ async def answer_question(request: Request):
 '''
 
 
-
+'''
 app = FastAPI()
 
 app.add_middleware(
@@ -55,8 +55,22 @@ async def answer_question(request: QuestionRequest):
 # Health check
 @app.get("/")
 async def root():
-    return {"message": "FastAPI is running!"}
+    return {"message": "FastAPI is running!"}'''
+
+
+from fastapi import FastAPI
+from pydantic import BaseModel
+
+app = FastAPI()
+
+class TestRequest(BaseModel):
+    test_data: str  # Add expected request fields
 
 @app.post("/")
-async def test():
-    return {"message": "Test endpoint is working!"}
+async def test_post(request: TestRequest):  # Use proper request model
+    print(f"Received: {request.test_data}")
+    return {"message": "POST endpoint is working!", "received": request.test_data}
+
+@app.get("/")
+async def test_get():
+    return {"message": "GET endpoint is working!"}
