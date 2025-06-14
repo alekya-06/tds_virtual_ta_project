@@ -1,4 +1,5 @@
-from fastapi import FastAPI, HTTPException, CORSMiddleware, Header
+from fastapi import FastAPI, HTTPException, Header
+from fastapi.middleware.cors import  CORSMiddleware
 from pydantic import BaseModel, Field, field_validator, StringConstraints
 from typing import Optional, Annotated
 import time
