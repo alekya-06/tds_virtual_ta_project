@@ -37,7 +37,6 @@ async def handle_post(request: QuestionRequest):
         "links": []
     }
 
-# Alternative if you prefer /api/ as endpoint
 @app.post("/api/")
 async def api_endpoint(request: QuestionRequest):
     return {

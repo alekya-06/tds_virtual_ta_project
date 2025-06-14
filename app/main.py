@@ -86,7 +86,7 @@ class QuestionRequest(BaseModel):
         None,
         example="iVBORw0KGgoAAAANSUhEUg...",
         description="Base64 encoded image (optional)",
-        regex=r'^[A-Za-z0-9+/=]*$'
+        pattern=r"^[A-Za-z0-9+/=]*$"
     )
     
     @field_validator('question')

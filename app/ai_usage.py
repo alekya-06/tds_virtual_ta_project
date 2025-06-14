@@ -1,13 +1,15 @@
-import os
 import openai
 from fastapi import HTTPException
-from .config import AIPIPE_TOKEN, AIPIPE_BASE_URL, ALLOWED_MODELS
+from app.config import settings
+
+token = settings.AIPIPE_TOKEN
+
 
 class AIProxy:
     def __init__(self):
         self.client = openai.OpenAI(
-            base_url=AIPIPE_BASE_URL,
-            api_key=AIPIPE_TOKEN
+            base_url=settings.AIPIPE_BASE_URL,
+            api_key=settings.AIPIPE_TOKEN
         )
         self.min_confidence = 0.65  # Use AI if local score < 65%
 

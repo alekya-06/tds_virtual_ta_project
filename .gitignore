@@ -1,11 +1,58 @@
-# Python-generated files
+# Security-sensitive files
+.env
+.env.*
+secrets.*
+*.key
+*.pem
+*.cert
+*.secret
+
+# Python-specific
 __pycache__/
-*.py[oc]
+*.py[cod]
+*.so
+.Python
 build/
 dist/
+pip-log.txt
+pip-delete-this-directory.txt
+*.egg-info/
+.eggs/
+*.egg
 wheels/
-*.egg-info
+*.whl
 
 # Virtual environments
 .venv
-echo ".env" >> .gitignore
+venv/
+ENV/
+env/
+
+# IDE & Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# System & OS
+.DS_Store
+Thumbs.db
+
+# Test/coverage
+.coverage
+htmlcov/
+.pytest_cache/
+test-results/
+
+# Logs
+*.log
+logs/
+
+# Vercel
+.vercel/
+.next/
+
+# Local development
+local_settings.py
+instance/
